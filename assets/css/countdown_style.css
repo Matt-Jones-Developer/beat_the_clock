@@ -1,0 +1,63 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+div {
+    padding: 4rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.countdown {
+    padding-top: 10rem;
+    background-color: #333;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.cd_box {
+    padding: 2rem;
+    padding-top: 3rem;
+    background-color: black;
+    width: 28rem;
+    height: 28rem;
+    color: aquamarine;
+    border: 4px solid aquamarine;
+    text-align: center;
+}
+
+.countdown .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+#seconds {
+    margin: 0 auto;
+    font-size: 17rem;
+    text-align: center;
+    border: 1px solid red;
+    color: aquamarine;
+}
+
+#timer_update {
+    padding: 2rem;
+    font-size: 30px;
+    color: #fff;
+}
+
