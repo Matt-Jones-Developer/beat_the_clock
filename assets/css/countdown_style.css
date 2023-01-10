@@ -51,7 +51,6 @@ h1 {
     margin: 0 auto;
     font-size: 17rem;
     text-align: center;
-    border: 1px solid red;
     color: aquamarine;
 }
 
@@ -59,5 +58,22 @@ h1 {
     padding: 2rem;
     font-size: 30px;
     color: #fff;
+    padding-bottom: 0px;
+    
 }
+
+.restart-btn {
+    margin-top: 0;
+    background-color: black;
+    font-size: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 1rem 4rem;
+    border-radius: 5rem;
+    border: none;
+    color: #fff;
+
+}
+
 

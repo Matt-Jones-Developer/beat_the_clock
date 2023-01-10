@@ -1,7 +1,7 @@
 // a simple countdown - the app doesn't need a timer past 60 seconds
 
 // set the countdown timer value 
-let countdown = 5;
+let countdown = 10;
 
 document.getElementById("seconds").innerHTML = countdown;
 
@@ -19,6 +19,15 @@ window.setInterval(function () {
         document.getElementById("timer_update").innerHTML = `Timer ends in : ${countdown} seconds`;
     }
 
+    // start flashing 5 seconds before timer ends 
+    if (countdown <= 5) {
+        // setInterval(toggleFlash, 100) // why doesn't this work?
+        setInterval(function() {
+            toggleFlash('seconds', 'black');
+        // specify the time using interval timer 
+        }, 100);
+    }
+
     // stop timer and update element 
     else if (countdown <= 0) {
         // stop and set countdown to 0
@@ -28,14 +37,7 @@ window.setInterval(function () {
         document.getElementById("timer_update").innerHTML = "Time's Up!";
         // toggle colour on label
         toggleColour()
-        // toggle flash on timer
-        // setInterval
-        // setInterval(function () {
-        //     toggleFlash('seconds', 'black');
-        //     // specify the time using interval timer 
-        // }, 100);
-        // we must use a proper function call here 
-        toggleFlash('seconds', 'black');
+        
     }
 
     // we no longer have a function called countdown, so just ,1000 (1 sec)
@@ -53,7 +55,6 @@ function toggleColour() {
     document.getElementById("timer_update").style.color = colour;
     document.getElementById("timer_update").style.fontSize = "50px";
 }
-
 
 // could also assign as a new variable 
 
@@ -78,16 +79,25 @@ function toggleFlash(e, c) {
 }
 
 // setInterval
-setInterval(function() {
-    toggleFlash('seconds', 'black');
-// specify the time using interval timer 
-}, 100);
+// setInterval(function() {
+//     toggleFlash('seconds', 'black');
+// // specify the time using interval timer 
+// }, 100);
 
 // set intervals for:
 
 // 3 seconds left: 100
 // 0 seconds: 250
 
+// restart timer function 
+
+function restartTimer() {
+    // if restart button pressed
+
+    // then add 60 seconds to countdown
+
+    // re-call the 
+}
 
 
 
