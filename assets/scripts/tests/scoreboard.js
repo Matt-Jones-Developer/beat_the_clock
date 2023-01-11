@@ -181,6 +181,7 @@ function pointUp() {
 
     // when player can enter initials
     // if score === 100 (10 points per question?)
+    // if score is > than highScores[i] - in a for loop that iterates through the array
     if (score === 10) {
         // then prompt
         playerInput = prompt('Enter your initials:')
@@ -198,13 +199,15 @@ function pointUp() {
             if (index !== -1) {
                 // assign entered name as the players name (p1)
                 scoreboard[index].name = playerInput;
+                // add score to score 
+                scoreboard[index].score = score;
                 // debug
                 console.log(scoreboard[index].name)
                 console.log(scoreboard)
 
                 // update the element to add name to scoreboard 
-                document.querySelector('.player-name').innerHTML = playerInput;
-                document.querySelector('.player-score').innerHTML = score;
+                document.querySelector('.score-table .n1').innerHTML = playerInput;
+                document.querySelector('.score-table .s1').innerHTML = score;
             }
         }
     }
