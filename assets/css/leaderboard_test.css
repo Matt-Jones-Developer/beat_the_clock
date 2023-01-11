@@ -70,7 +70,7 @@ ol {
     text-align: center;
     padding-top: 2rem;
     margin-bottom: 2rem;
-    
+
 }
 
 .leader-box {
@@ -92,34 +92,46 @@ ol {
     display: block;
     justify-content: center;
     text-align: center;
-    padding-top: 1rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
     border-radius: 1rem;
     background-color: #fff;
     color: #333;
     /* border: 1px solid red; */
 }
 
+table {
+     border: 1px solid aquamarine;
+     text-align: left;
+}
+
+tr {
+    margin-left: 2rem;
+}
+
+td {
+    font-size: 28px;
+}
+
 .board-array-titles {
-    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
     /* border: 1px solid aquamarine; */
-    padding-left: 2rem;
-    padding-right: 1rem;
 }
 
-#title-position {
-    margin-right: 6rem;
-}
-#title-player {
-    margin-right: 6rem;
-}
-
-#title-score {
-    margin-right: 6rem;
+.score-table {
+    display: table;
+    width: 90%;
+    border: 1px solid red;
 }
 
-#title-plays {
-    margin-right: 1rem;
+.topScore {
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+
 }
+
 
 .test-area {
     display: block;
@@ -136,9 +148,3 @@ ol {
     padding: -8rem;
     font-size: 101px;
 }
-
-
-
-
-
-

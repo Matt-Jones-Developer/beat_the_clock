@@ -1,13 +1,13 @@
 // The countdown timer function 
 
-let remaining = 60;
+let remaining = 5;
 
 document.getElementById("seconds").innerHTML = remaining;
 
 // start game 
 startGame()
 // call countdown timer function
-function startGame () {
+function startGame() {
     if (remaining != 0) {
         countdown()
     } else {
@@ -20,6 +20,7 @@ function startGame () {
 function countdown() {
 
     // reset timer digits 
+    document.querySelector('#seconds').style.fontSize = "17rem";;
     document.getElementById('seconds').style.color = "aquamarine";
     document.querySelector('#seconds').innerHTML = remaining;
     // apply to label
@@ -44,7 +45,7 @@ function countdown() {
         else if (remaining <= 0) {
             // stop timer 
             remaining = 0; // force to 0
-            console.log('remaining:',remaining) // 1?
+            console.log('remaining:', remaining) // 1?
             // change element text
             document.getElementById("timer_update").innerHTML = "Time's Up!";
             // toggle colour on label
@@ -53,7 +54,18 @@ function countdown() {
             // clear timer / stop running? or @ startGame ?
             clearInterval(timerInterval);
             // clear 0 digit on timer end 
-            document.querySelector('#seconds').innerHTML = " ";
+            // would be cool to add an image here - like a 'game over' or an emblem
+            document.querySelector('#seconds').innerHTML = "\n\nGAME\nOVER";
+            // adjust the size so it fits inside the box
+            document.querySelector('#seconds').style.fontSize = "130px";;
+
+            // update score
+
+            // create a newScore 
+            // add to highScores array entry using .sort 
+            // we need to check IF newScore is < or > than highScores
+            // IF newScore > highScores[i] then .splice it into the array
+            // for highScores[i] -> highScores.splice(i, parseInt(newScore)) ?
         }
         // specify every second 
     }, 1000);
@@ -93,9 +105,15 @@ function toggleFlash(e, c) {
 // start flash interval (without disrupting main timer)
 setInterval(function () {
     if (remaining <= 5) {
-
+        // start flashing
         toggleFlash('seconds', 'black');
+        // let intervalFlash = toggleFlash('seconds', 'black');
     }
+    // stop flash if timer <= 0?
+    else {
+        // clearInterval(intervalFlash)
+    }
+    // this will always be 100 unless changed somewhere!
 }, 100);
 
 
@@ -107,7 +125,7 @@ function restartTimer() {
     // prevents restart if remaining != 0
     if (remaining <= 0) {
         // then add 60 seconds to countdown
-        remaining = 60;
+        remaining = 10;
         // re-call the countdown function
         countdown()
     }

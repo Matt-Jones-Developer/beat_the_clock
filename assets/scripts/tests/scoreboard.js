@@ -34,6 +34,14 @@
 -> once entered (first time) -> initals and 'timesPlayed ++' even their 'topScore' ?
 -> could use this object array as the main leaderboard array?? 
 
+
+required:
+
+localStorage - check whether any scores are present ?
+.sort - make sure the returned scores array is in order (highest to lowest)
+- loop through the sorted scores, adding a new item to the list (when new score created)
+scores = scores.sort()
+
 */
 
 // array:
@@ -49,24 +57,61 @@
 // ]
 
 
-// create scoreboard array object
+// create scoreboard array object - is this correct??
+
+// let scoreboard = [
+//     // # | name | score 
+//     //index 0,1,2
+//     { position1: ['player1', 10000] },
+//     { position2: ['player2', 5000] },
+//     { position3: ['player3', 100] },
+
+// ]
+
+// access an array value ('player name' or 'score')
+//  these all access fine 
+// console.log(pos1.position1[0]) // 'name1'
+// console.log(pos1.position1[1]) // 10000
+
+// console.log(pos2.position2[0]) // 'name1'
+// console.log(pos2.position2[1]) // 10000
+
+// console.log(pos3.position3[0]) // 'name1'
+// console.log(pos3.position3[1]) // 10000
+
+// // interpolate some
+// console.log(`${pos1.position1[0]} tops the leaderboard with ${pos1.position1[1]} score!!`)
+// console.log(`${pos3.position3[0]} barely scraps a position!! A measly ${pos3.position3[1]} score... more practice for this guy!`)
+
+// // create vars for these ?
+
+// let topScorer = pos1.position1[0];
+// console.log(topScorer)
+
+// console.log(topScorer[0]) // char 1 of length!
+// console.log(topScorer.length) // must be max of 3 chars!
+
+
+
+// the correct object array method!
 
 let scoreboard = [
-    // # | name | score 
+    // id | name | score 
     //index 0,1,2
-    { position1: ['player1', 10000] },
-    { position2: ['player2', 5000] },
-    { position3: ['player3', 100] },
+    { id: 1, name: 'player1', score: 10000 },
+    { id: 2, name: 'player2', score: 5000 },
+    { id: 3, name: 'player3', score: 100 },
 
 ]
+
 
 console.log(typeof (scoreboard)) // object OK
 
 // log the positions (able to access arrays to modify)
 
-console.log(scoreboard[0]) // logs position 1 (Array(2))
-console.log(scoreboard[1]) // logs position 2 (Array(2))
-console.log(scoreboard[2]) // logs position 3 (Array(2))
+console.log(scoreboard[0]) // logs id 1 
+console.log(scoreboard[1]) // logs id 2
+console.log(scoreboard[2]) // logs id 3
 
 
 // create access vars - 'define' array items and avoid undefined!
@@ -79,34 +124,39 @@ console.log(pos3) //OK
 
 
 // access an array value ('player name' or 'score')
+//  these are WAY BETTER. correct and easily accessible via naming
+console.log(pos1.id) // 1
+console.log(pos1.name) // player1
+console.log(pos1.score) // 10000
 
-console.log(pos1.position1[0]) // 'name1'
-console.log(pos1.position1[1]) // 10000
+console.log(pos2.id) // 2
+console.log(pos2.name) // player2
+console.log(pos2.score) // 5000
 
-console.log(pos2.position2[0]) // 'name1'
-console.log(pos2.position2[1]) // 10000
-
-console.log(pos3.position3[0]) // 'name1'
-console.log(pos3.position3[1]) // 10000
+console.log(pos3.id) // 3
+console.log(pos3.name) // player3
+console.log(pos3.score) // 100
 
 // interpolate some
-console.log(`${pos1.position1[0]} tops the leaderboard with ${pos1.position1[1]} points!!`)
-console.log(`${pos3.position3[0]} barely scraps a position!! A measly ${pos3.position3[1]} points... more practice for this guy!`)
+console.log(`${pos1.name} tops the leaderboard with ${pos1.score} score!!`)
+console.log(`${pos3.name} barely scraps a position!! A measly ${pos3.score} score... more practice for this guy!`)
 
 // create vars for these ?
 
-let topScorer = pos1.position1[0];
-console.log(topScorer)
+let polePosition = pos1; // entire array 
+console.log(polePosition)
+let topScorer = pos1.name; // player name only 
+console.log('topScorer var:', topScorer)
 
-console.log(topScorer[0]) // char 1 of length!
-console.log(topScorer.length) // must be max of 3 chars!
+console.log(topScorer[0]) // char 1 of length! p
+console.log(topScorer.length) // must be max of 3 chars! 
 
 // when user enters a name: conditional
 let playerName = 'abc'
 console.log(playerName.length) // 3
 
-// global points 
-let points = 0; // global or local?
+// global score 
+let score = 0; // global or local?
 let playerInput; // how better to do this?
 // force 3 max char length 
 if (playerInput > playerName.length) {
@@ -117,28 +167,53 @@ if (playerInput > playerName.length) {
 
 // point tester (point-up btn)
 
+// this will become a updateScore() function 
+// in which the var newScore will be added to, each time a question is answered correctly 
+
 function pointUp() {
     // when btn clicked 
     console.log('point up!')
     // add a point to score
-    points++;
-    console.log(points)
+    score++;
+    console.log(score)
     // update element 
-    document.querySelector('#score-label').innerHTML = points;
+    document.querySelector('#score-label').innerHTML = score;
 
     // when player can enter initials
-    // if points === 100
-    if (points === 10) {
+    // if score === 100 (10 points per question?)
+    if (score === 10) {
         // then prompt
         playerInput = prompt('Enter your initials:')
+
+        // add player name to array
+        // if !localStorage ?? see my user login code 
+        if (score !== 0) {
+            const index = scoreboard.findIndex(object => {
+                // debug
+                console.log(object.id)
+                // return element we need (id:1)
+                return object.id === 1;
+            }); // 
+
+            if (index !== -1) {
+                // assign entered name as the players name (p1)
+                scoreboard[index].name = playerInput;
+                // debug
+                console.log(scoreboard[index].name)
+                console.log(scoreboard)
+
+                // update the element to add name to scoreboard 
+                document.querySelector('.player-name').innerHTML = playerInput;
+                document.querySelector('.player-score').innerHTML = score;
+            }
+        }
     }
 }
+    // store player_input (player_name?) into the array
 
-// store player_input (player_name?) into the array
-
-// -> if NO other entries (top scorer -> pos1)
-// -> else if higher than the highest score - set to pos1
-// -> else if ??? need a way to 'slot into into the correct position'
-// -> else (< all other scores )
+    // -> if NO other entries (top scorer -> pos1)
+    // -> else if higher than the highest score - set to pos1
+    // -> else if ??? need a way to 'slot into into the correct position'
+    // -> else (< all other scores )
 
 
