@@ -98,9 +98,11 @@ scores = scores.sort()
 let scoreboard = [
     // id | name | score 
     //index 0,1,2
-    { id: 1, name: 'player1', score: 10000 },
+    { id: 1, name: 'player1', score: 10 },
     { id: 2, name: 'player2', score: 5000 },
     { id: 3, name: 'player3', score: 100 },
+    { id: 4, name: 'player4', score: 0 },
+    { id: 5, name: 'player5', score: 0 }
 
 ]
 
@@ -170,6 +172,56 @@ if (playerInput > playerName.length) {
 // this will become a updateScore() function 
 // in which the var newScore will be added to, each time a question is answered correctly 
 
+// function pointUp() {
+//     // when btn clicked 
+//     console.log('point up!')
+//     // add a point to score
+//     score++;
+//     console.log(score)
+//     // update element 
+//     document.querySelector('#score-label').innerHTML = score;
+
+//     // when player can enter initials
+//     // if score === 100 (10 points per question?)
+//     // if score is > than highScores[i] - in a for loop that iterates through the array
+//     if (score === 10) {
+//         // then prompt
+//         playerInput = prompt('Enter your initials:')
+
+//         // add player name to array
+//         // if !localStorage ?? see my user login code 
+//         if (score !== 0) {
+//             const index = scoreboard.findIndex(object => {
+//                 // debug
+//                 console.log(object.id)
+//                 // return element we need (id:1)
+//                 return object.id === 1;
+//             }); // 
+
+//             if (index !== -1) {
+//                 // assign entered name as the players name (p1)
+//                 scoreboard[index].name = playerInput;
+//                 // add score to score 
+//                 scoreboard[index].score = score;
+//                 // debug
+//                 console.log(scoreboard[index].name)
+//                 console.log(scoreboard)
+
+//                 // update the element to add name to scoreboard 
+//                 document.querySelector('.score-table .n1').innerHTML = playerInput;
+//                 document.querySelector('.score-table .s1').innerHTML = score;
+//             }
+//         }
+//     }
+// }
+// store player_input (player_name?) into the array
+
+// -> if NO other entries (top scorer -> pos1)
+// -> else if higher than the highest score - set to pos1
+// -> else if ??? need a way to 'slot into into the correct position'
+// -> else (< all other scores )
+
+
 function pointUp() {
     // when btn clicked 
     console.log('point up!')
@@ -194,7 +246,7 @@ function pointUp() {
                 console.log(object.id)
                 // return element we need (id:1)
                 return object.id === 1;
-            }); // 
+            });
 
             if (index !== -1) {
                 // assign entered name as the players name (p1)
@@ -212,11 +264,83 @@ function pointUp() {
         }
     }
 }
-    // store player_input (player_name?) into the array
 
-    // -> if NO other entries (top scorer -> pos1)
-    // -> else if higher than the highest score - set to pos1
-    // -> else if ??? need a way to 'slot into into the correct position'
-    // -> else (< all other scores )
+
+// finding and adding to the highScore
+
+
+// highScore var that tracks what the highest score is
+let highestScore = 0;
+
+// iterate through the array 
+// for (let i = 0; i < scoreboard[i].score.length; i++) {
+//     const element = scoreboard.score[i];
+//     console.log('loop i element', element)
+// }
+
+// find the highest value in the array index(score)
+// add that index(score) to highScore var 
+
+// IF newScore is > highScore 
+// add a newScore to highScore
+
+console.log('new highestscore', highestScore)
+
+// how many players on the scoreboard ?
+
+// store total
+let totalPlayers = 0;
+// iterate through the length of entries
+for (let i = 0; i < scoreboard.length; i++) {
+    // adding 1 to count for each loop
+    totalPlayers++;
+}
+
+console.log('total players:',totalPlayers)
+
+// how do we tap in to ALL the scores only?
+
+// a single score?
+scoreboard[0].score // OK
+
+// all scores? ()
+console.log('access score[via index]', scoreboard[0][1]) // undefined
+
+// we must first create an new array to store ALL the scores in
+let scores = [];
+
+// iterate through all ?
+for (let i = 0; i < 4; i++) {
+    const element = scores += scoreboard[i].score;
+    console.log('element:', element)
+
+    // add each element to scores arr 
+    scores += scoreboard[i].score;
+    
+}
+
+console.log(scores)
+
+scores = [
+    // whats the non-idiot way of doing this?? I cannot get a for loop to work
+    scoreboard[0].score, scoreboard[1].score, scoreboard[2].score, 
+    scoreboard[3].score, scoreboard[4].score
+];
+
+console.log('scoresArray', scores)
+
+// what is the for loop solution that would then allow to find the highest and lowest 
+
+for (let i = 0; i < scores.length; i++) {
+    const element = scores[i].score;
+    
+}
+
+// sort array (highest to lowest)
+console.log(scores.sort(function(a, b){return b - a}));
+
+// into a var 
+let sortedScores = scores.sort(function(a, b){return b - a});
+console.log(sortedScores)
 
 
