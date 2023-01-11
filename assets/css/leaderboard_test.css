@@ -1,0 +1,144 @@
+/* basic leaderboard styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+}
+
+h1 {
+    font-size: 80px;
+    color: aquamarine;
+}
+
+h2 {
+    padding-bottom: 2rem;
+}
+
+h3 {
+    display: inline;
+}
+
+button {
+    padding: .8rem 3rem;
+    border: none;
+    border-radius: 5rem;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    font-size: 28px;
+}
+
+ol {
+    margin: 2rem;
+    margin-top: 0;
+    padding: 1.5rem;
+    padding-top: 1rem;
+    padding-bottom: 0;
+    line-height: 2rem;
+    /* border: 1px solid red; */
+}
+
+/* outer page style */
+.leaderboard {
+    background-color: #333;
+    margin: 8rem;
+    padding: 2rem;
+    padding-bottom: 4rem;
+    border-radius: 1rem;
+}
+
+.container {
+    margin: 0;
+}
+
+.leaderboard .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid red; */
+}
+
+.leader-titles {
+    display: block;
+    text-align: center;
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    
+}
+
+.leader-box {
+    margin-top: 0;
+    padding: 2rem;
+    padding-top: 0;
+    text-align: center;
+    /* border: 1px solid red; */
+}
+
+.leader-box .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    margin: 0 auto;
+    display: block;
+    justify-content: center;
+    text-align: center;
+    padding-top: 1rem;
+    border-radius: 1rem;
+    background-color: #fff;
+    color: #333;
+    /* border: 1px solid red; */
+}
+
+.board-array-titles {
+    text-align: center;
+    /* border: 1px solid aquamarine; */
+    padding-left: 2rem;
+    padding-right: 1rem;
+}
+
+#title-position {
+    margin-right: 6rem;
+}
+#title-player {
+    margin-right: 6rem;
+}
+
+#title-score {
+    margin-right: 6rem;
+}
+
+#title-plays {
+    margin-right: 1rem;
+}
+
+.test-area {
+    display: block;
+    margin: 0 auto;
+}
+
+.point-up {
+    padding: 1rem;
+    background: red;
+}
+
+#score-label {
+    float: right;
+    padding: -8rem;
+    font-size: 101px;
+}
+
+
+
+
+
+

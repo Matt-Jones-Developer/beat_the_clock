@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/leaderboard_test.css">
+    <title>Leaderboard Testing</title>
+</head>
+<body>
+    <h4>Leaderboard Testing</h4>
+    <!-- define the board -->
+    <div class="leaderboard">
+        <!-- flex -->
+        <div class="container">
+            <!-- define elements -->
+            <!-- buttons (clear board/clear array)  -->
+            <button class="clear-btn">CLEAR</button>
+            <!-- board titles - block -->
+            <div class="leader-titles">
+                <h1>LEADERBOARD</h1>
+                <h2>The Hall of Fame!</h2>
+            </div>
+             <!-- + BACK to game -->
+            <button class="back-btn">BACK</button>
+        </div>
+        <!-- define the leader-box -->
+        <div class="leader-box">
+            <div class="container">
+                <div class="box">
+                    <!-- box header -->
+                    <h2>All Time <em><b>Greatest Players </b></em> 2023</h2>
+                    <!-- a table? or a grid?  -->
+                    <!-- the leaderboard array table -->
+                    <div class="board-array-titles">
+                        <!-- must be INLINE not BLOCK -->
+                        <h3 id="title-position">#:</h3>
+                        <h3 id="title-player">player name:</h3>
+                        <h3 id="title-score">score:</h3>
+                        <h3 id="title-plays">plays:</h3>
+                    </div>
+                    <!-- scoreboard ordered list -->
+                    <ol>
+                        <!-- start with these 3, help to define logic before adding more 'scorers' as middle rung -->
+                        <li class="li1" id="top-scorer">
+                            <!-- use array object to fill these -->
+                        </li>
+                        <li class="li2" id="scorer">
+                            <!-- name: 'MAT', score: 100, plays: 20 -->
+                        </li>
+                        <li class="li3" id="low-scorer">
+                            <!-- use array object to fill these -->
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="test-area">
+            <!-- test 'add point' button -->
+            <button class="point-up" onclick="pointUp()">Point++ (DEBUG)</button>
+            <label for="points" id="score-label">0</label>
+        </div>
+    </div>
+    <script src="./assets/scripts/tests/scoreboard.js"></script>
+</body>
+</html>
