@@ -102,7 +102,8 @@ ol {
 
 table {
      border: 1px solid aquamarine;
-     text-align: left;
+     /* text-align: left; */
+     text-align: center;
 }
 
 tr {
@@ -116,13 +117,14 @@ td {
 .board-array-titles {
     font-size: 24px;
     font-weight: bold;
+    text-align: center;
     /* border: 1px solid aquamarine; */
 }
 
 .score-table {
     display: table;
     width: 90%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .topScore {

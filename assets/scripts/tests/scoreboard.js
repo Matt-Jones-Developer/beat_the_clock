@@ -106,6 +106,7 @@ let scoreboard = [
 
 ]
 
+// UPDATE: using indexes means no need for ID - see final solution leaderboard.js
 
 console.log(typeof (scoreboard)) // object OK
 
