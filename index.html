@@ -1,55 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- <script defer src="./assets/scripts/main.js"></script> -->
-    <script defer src="./assets/scripts/timer.js"></script>
     <title>Beat The Clock! The Timed JS Quiz</title>
 </head>
+
 <body>
-    <h1>START PAGE</h1>
-    <p>Will have a large start button, animated clock and music!</p>
-    <p>The game is accessed via the TEMPLATES folder - game.html, gameover.html and leaderboard.html</p>
-    <img src="./assets/images/wireframing UI Design/app_flow.png" alt="">
-    <img src="./assets/images/wireframing UI Design/start_home_screen.png" alt="">
+    <!-- start page -->
+    <div class="start-page">
+        <div class="container">
+            <div class="box">
+                <div class="container">
+                    <div class="start-title">
+                        <h1>BEAT THE CLOCK!</h1>
+                        <h2 class="last-title">The JavaScript Quiz</h2>
+                        <!-- gif image -->
+                        <!-- <img src="https://media.giphy.com/media/7YBJwWrTZEYoXSphx5/giphy.gif" 
+                        id='clock-face' width='300px' alt="80s-clock-gif"> -->
+                        <!-- direct -->
+                        <img src="./assets/images/gif/80s_clock.gif" 
+                        id='clock-face' width='300px' alt="80s-clock-gif">
+                        <p>
+                            Try to answer the following code-related questions within the time
+                            limit.
+                        </p>
+                        <p>
+                            Keep in mind that incorrect answers will penalize your
+                            score/time by ten seconds!
+                        </p>
+                        <div class="btn-section">
+                            <a href="./templates/game.html">
+                                <button class="startBtn" onclick="startQuiz()">Start Quiz</button>
+                            </a>
 
-    <!-- outline basic -->
-    <div class="scores"><a href="highscores.html">View Highscores</a></div>
-
-    <div class="timer">Time: <span id="time">0</span></div>
-
-    <div class="wrapper">
-      <div id="start-screen" class="start">
-        <h1>Coding Quiz Challenge</h1>
-        <p>
-          Try to answer the following code-related questions within the time
-          limit. Keep in mind that incorrect answers will penalize your
-          score/time by ten seconds!
-        </p>
-        <button id="start">Start Quiz</button>
-      </div>
-
-      <div id="questions" class="hide">
-        <h2 id="question-title"></h2>
-        <div id="choices" class="choices"></div>
-      </div>
-
-      <div id="end-screen" class="hide">
-        <h2>All done!</h2>
-        <p>Your final score is <span id="final-score"></span>.</p>
-        <p>
-          Enter initials: <input type="text" id="initials" max="3" />
-          <button id="submit">Submit</button>
-        </p>
-      </div>
-
-      <div id="feedback" class="feedback hide"></div>
+                            <div class="leaderboard"><a href="./templates/leaderboard.html">
+                                <button class="boardBtn">View Leaderboard</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <h4>Designed & Programmed with love by Matt Jones &copy; 2023.</h4>
+        </footer>
     </div>
-
-    <script src="./assets/js/questions.js"></script>
-    <script src="./assets/js/logic.js"></script>
+    <script src="./assets/scripts/pseudo.js"></script>
+    <script src="./assets/scripts/timer.js"></script>
+    <!-- <script src="./assets/js/questions.js"></script>
+    <script src="./assets/js/logic.js"></script> -->
 </body>
+
 </html>

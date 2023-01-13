@@ -1,0 +1,152 @@
+/*  game screen styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #555;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1 {
+    font-size: 85px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 30px;
+}
+
+p {
+    font-size: 30px;
+    padding: 0 2rem;
+}
+
+button {
+    padding: 1rem 3rem;
+    border-radius: 5rem;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+/* .grid-container {
+    display: grid;
+} */
+
+.quiz-page .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.quiz-page {
+    padding-top: 0rem;
+}
+
+/* .inline-title {
+    display: inline;
+} */
+
+.box {
+    padding: 1rem;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: #333;
+    margin: 2rem 4rem;
+    /* border: 1px solid red; */
+}
+
+.quiz-title {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.questions-area {
+    padding: 1rem;
+    text-align: left;
+    margin-top: -2.5rem;
+    /* border: 1px solid red; */
+}
+
+.question-box {
+    padding: 1rem;
+    margin-top: 2rem;
+    background-color: #555;
+    border-radius: 1rem;
+    width: 1000px;
+    height: 360px;
+    /* border: 1px solid red; */
+}
+
+.option-buttons {
+    padding-bottom: 2rem;
+    /* border: 1px solid red; */
+}
+
+.optionBtn {
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+.optionBtn:hover {
+    /* // move / depress effect */
+}
+
+.optionBtn:active {
+    /* // move / depress effect */
+}
+
+#a {
+    background-color: greenyellow;
+}
+
+#b {
+    background-color: orange;
+}
+
+#c {
+    background-color: #75FB55;
+}
+
+#d {
+    background-color: #E131F7;
+}
+
+.restart-btn {
+    cursor: pointer;
+    background-color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+
+}
+
+
+.quit-btn {
+    cursor: pointer;
+    margin-left: 3rem;
+    padding: 1rem 3rem;
+
+}
+
+
+

@@ -1,9 +1,22 @@
-// leaderboard / scoring logic 
+// leaderboard object array that keeps tracks of players names and scores 
 
-// create object array
+/*
+/// *** MAIN ISSUES: overview *** //
+
+1. Create a loop for querySelectorAll that DRY's lines 57-75 ? see Ln83 for my attempt
+2. Have the correct element accessed on qualify() - func Ln 117 (lines 170/171)
+3. (Cont. from issue 2): The array objects are being correctly sorted and popped - so I need the elements to copy this 
+- you can test my codes functions by editing the newPlayer.score value on line 96, add uncommenting qualify() call Line 114
+4. the do while if else line 137 within qualify() - expected output: while playerInput !== newPlayer.input -> re-ask for initials until 3 chars entered
+
+// OTHER MISSING LOGIC: we want to check whether a score is === any current score, which pushes that older one below it/ or removes it entirely if at pos5 ?
+*/
+
+
+// create object array - sorting doesn't matter
 let scoreboard = [
     // position1: index 0
-    { name: 'MAD', score: 500, plays: 0 },
+    { name: 'MAD', score: 5000, plays: 0 },
     // position2: index 1
     { name: 'ZAZ', score: 500, plays: 0 },
     // position3: index 2
@@ -26,7 +39,7 @@ function sortScores() {
     });
 }
 
-// define objects - for position recall
+// define objects 
 
 let pos1 = scoreboard[0];
 console.log("#1", pos1) // object[i]: {name: 'MAD' score: 5000}
@@ -39,13 +52,51 @@ console.log("#4", pos4)
 let pos5 = scoreboard[4];
 console.log("#5", pos5)
 
+// querySelector these objects to the page 
+// n1 = name s1 = score r1 = runs/plays (per player x 5)
+document.querySelector('.score-table .n1').innerHTML = pos1.name;
+document.querySelector('.score-table .s1').innerHTML = pos1.score;
+document.querySelector('.score-table .r1').innerHTML = pos1.plays;
+
+document.querySelector('.score-table .n2').innerHTML = pos2.name;
+document.querySelector('.score-table .s2').innerHTML = pos2.score;
+document.querySelector('.score-table .r2').innerHTML = pos2.plays;
+
+document.querySelector('.score-table .n3').innerHTML = pos3.name;
+document.querySelector('.score-table .s3').innerHTML = pos3.score;
+document.querySelector('.score-table .r3').innerHTML = pos3.plays;
+
+document.querySelector('.score-table .n4').innerHTML = pos4.name;
+document.querySelector('.score-table .s4').innerHTML = pos4.score;
+document.querySelector('.score-table .r4').innerHTML = pos4.plays;
+
+document.querySelector('.score-table .n5').innerHTML = pos5.name;
+document.querySelector('.score-table .s5').innerHTML = pos5.score;
+document.querySelector('.score-table .r5').innerHTML = pos5.plays;
+
+// for loop for these objects into correct elements on scoreboard  // KISS vs DRY??
+
+// for (var i = 0; i < '.score-table'.length; i++) {
+//     '.score-table'[i].setAttribute...;
+//    }
+
+// try using ... and forEach to iterate?
+// let scoreTable = document.querySelectorAll('.score-table');
+// let tableArray = [...scoreTable];
+// tableArray.forEach(scoreTable => {
+//     // set each pos.name and pos.score to correct elements - but need pos'x' value not 1
+//     document.querySelector('.score-table .n1').innerHTML = pos1.name;
+//     document.querySelector('.score-table .s1').innerHTML = pos1.score;
+//     document.querySelector('.score-table .r1').innerHTML = pos1.plays;
+// });
+
 // globals 
 
 // (newPlayer object) 'template' - starting object for all new players
-let newPlayer = { name: 'NEW', score: 0, plays: 0 };
+let newPlayer = { name: 'NEW', score: 0 };
 
 // length test
-// console.log('newPlayer.name length:', newPlayer.name.length)
+console.log('newPlayer.name length:', newPlayer.name.length)
 
 // (newPlayer === 'score')
 // score (current) - why is this not assigning as the same value? Ln 121 we have to set both to ++ ??
@@ -57,15 +108,10 @@ let highScore = pos1.score;
 // allow input to be accessed globally 
 let playerInput = '';
 
-// clear board (reset to initial array)
-function clearBoard() {
 
-    // clear the array items 
 
-    // clear the localStorage?
-    
-}
-
+// call the function - testing 
+// qualify()
 
 // Check if score qualifies for leaderboard 
 function qualify() {
@@ -87,8 +133,21 @@ function qualify() {
         // // prompt for initials 
         // playerInput = prompt('Enter your initials:').toUpperCase()
 
-        // prompt for initials 
-        playerInput = prompt('Enter your initials:').toUpperCase();
+        // do I need a do while to wrap this?
+        do {
+            // prompt for initials 
+            playerInput = prompt('Enter your initials:').toUpperCase()
+            // conditions
+            if (playerInput !== newPlayer.name.length) {
+
+                // alert user it must be 3 chars
+                alert("Must be 3 characters long")
+                console.log("Must be 3 characters")
+            }
+
+        } while (playerInput !== newPlayer.name.length);
+
+        // once condition met - loop ends:
 
         // its correct length
         // set playerInput to newPlayer.name
@@ -96,79 +155,26 @@ function qualify() {
         // debug
         console.log('playInput = newPlayer.name?: ', playerInput, newPlayer.name)
 
-        // add one to 'play count'
-        newPlayer.plays++;
         // .push (new player score added to scoreboard)
-        scoreboard.push(newPlayer);
+        scoreboard.push(newPlayer)
         // re-sort the array
-        sortScores();
+        sortScores()
         // pop the 6th entry off the board 
-        scoreboard.pop();
+        scoreboard.pop()
         // the updated array
-        console.log('A newPlayer added to scoreboard:', scoreboard);
+        console.log('A newPlayer added to scoreboard:', scoreboard)
 
-        // check against highScore - alert: IF Top Score
-        newHighScore();
+        // add newPlayer to correct element?
+        // ISSUE: so, the array updates to the correct position, 
+        // how do we get the correct .n and .s elements?
+        document.querySelector('.score-table .n5').innerHTML = playerInput;
+        document.querySelector('.score-table .s5').innerHTML = score;
 
-        // clear the current board
-        // issue: this clears the board-titles too? gah must separate them!! -as another function
-        document.querySelector('.boardArray').textContent = ''; // 'nope!` 
-        // add newPlayer to correct element
-        updateScoreboard();
-        // add the new scoreboard to localStorage 
-        localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
+        // check against highScore
+        newHighScore()
 
     }
-
 }
-
-// call updateScoreboard on load (should be via localStorage AFTER thIS RUN)
-updateScoreboard()
-
-// current issue - this will print ALL the names and scores onto the FIRST ROW of the table 
-
-// I want - 
-function updateScoreboard() {
-    // added it, cant style it!! 
-    let position = 0;
-    // position.setAttribute('style', 'backgroundColor:green; fontSize: 2em;');
-    // define an array of scoreboard elements and append them to the html
-    for (let i = 0; i < scoreboard.length; i++) {
-        // create the vars to hold each ROW TR x 5
-        let row = document.createElement('tr');
-        // set row[0] style properties like before?
-        // row.setAttribute("style", "color: red; fontSize:30px")
-        // increment position by 1 each pass 
-        position++;
-        // the 3 cells for each row <td>
-        let names = document.createElement('td');
-        let scores = document.createElement('td');
-        let plays = document.createElement('td');
-
-        // set td names content to array index
-        names.textContent = scoreboard[i].name;
-        scores.textContent = scoreboard[i].score;
-        plays.textContent = scoreboard[i].plays;
-
-        // declare parent (scoreboard)
-        let parent = document.querySelector('.boardArray');
-
-        // append the rows
-        parent.append(row);
-        // append cells
-        parent.append(position);
-        parent.append(names);
-        parent.append(scores);
-        parent.append(plays);
-
-    }
-
-    // // set row[0] style properties like before?
-    // row[0],setAttribute("style", "color: red; fontSize:30px")
-}
-
-
-
 
 // does newPlayer hold the new highScore?
 function newHighScore() {
@@ -183,10 +189,9 @@ function newHighScore() {
         highScore += newPlayer.score;
         console.log("new highScore:", highScore)
         console.log(`Congrats! You are top of the leaderboard, ${newPlayer.name}!`)
-        // update the elements of Top Score #1 to GOLD
-        document.pos5.setAttribute('style', 'color: gold')
-        // document.querySelector('.score-table .n1').innerHTML = playerInput;
-        // document.querySelector('.score-table .s1').innerHTML = score;
+        // update the elements of Top Score #1
+        document.querySelector('.score-table .n1').innerHTML = playerInput;
+        document.querySelector('.score-table .s1').innerHTML = score;
         // some form of animated gif or otherwise to celebrate being 1st place
         // TODO
     }

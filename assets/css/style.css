@@ -1,0 +1,97 @@
+/* start page - css styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #555;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+h1 {
+    font-size: 100px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 75px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 30px;
+    padding: 0 2rem;
+}
+
+button {
+    padding: 2rem 4rem;
+    border-radius: 5rem;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.container {
+    margin: 0 auto;
+}
+
+.start-page .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.box {
+    padding: 1rem 2rem;
+    padding-top: 0;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 1rem;
+    background-color: #333;
+}
+
+.box .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.start-title {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.last-title {
+    padding-bottom: 0;
+    margin-bottom: 2rem;
+}
+
+#clock-face {
+    padding-top: -1rem;
+    padding-left: 1rem;
+}
+
+.startBtn {
+    margin-top: 2rem;
+    background-color: greenyellow;
+    color: #333;
+}
+
+.boardBtn {
+    padding: 1rem 4rem;
+    margin-top: 2rem;
+    background-color: #7E17F5;
+    color: #fff;
+}
+
+.footer {
+    text-align: center;
+    letter-spacing: .3rem;
+}
+

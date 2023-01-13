@@ -1,5 +1,8 @@
 // decent game logic 
 
+// basic version game start?
+
+
 // within html - a '<section class='game'> which holds all the game elements
 
 // create a function to hold ALL the element queries for GAME

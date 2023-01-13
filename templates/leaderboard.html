@@ -1,35 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaderboard</title>
+    <link rel="stylesheet" href="/assets/css/style_leaderboard.css">
+    <title>Leaderboard Testing</title>
 </head>
+
 <body>
-    <h1>leaderboard layout goes here</h1>
-    <p>can access via main game AND gameover screen</p>
-    <p>Can clear the scores too</p>
-    <ul>
-        <li>contains:</li>
-        <li>clear button</li>
-        <li>back button</li>
-        <li>title- Hall Of Fame - LEADERBOARD</li>
-        <li>subtitle: 'all time greatest players'</li>
-        <li>a position number (No.1 is larger, in a diamond box</li>
-        <li>a list of players 2-10, inc name and score</li>
-        <li>set right: a 'times played' var counter</li>
-    </ul>
-
-    <div class="wrapper">
-        <h1>Highscores</h1>
-        <ol id="highscores"></ol>
-  
-        <a href="index.html"><button>Go Back</button></a>
-        <button id="clear">Clear Highscores</button>
-      </div>
-
-    <img src="../assets/images/wireframing UI Design/leaderboard_w_clear_btn.png" alt="">
-    <script src="./assets/js/scores.js"></script>
+    <!-- define the board -->
+    <div class="leaderboard">
+        <!-- flex -->
+        <div class="container">
+            <!-- define elements -->
+            <!-- buttons (clear board/clear array)  -->
+            <button class="clear-btn" onclick="clearBoard()">CLEAR</button>
+            <!-- board titles - block -->
+            <div class="leader-titles">
+                <h1 class="leader-h1">LEADERBOARD</h1>
+                <h2 class="stretch">HALL OF FAME</h2>
+            </div>
+            <!-- + BACK to start-game -->
+            <a href="../index.html"><button class="back-btn">BACK</button></a>
+        </div>
+        <!-- define the leader-box -->
+        <div class="leader-box">
+            <div class="container">
+                <div class="box">
+                    <!-- box header --> 
+                    <h2>🕹  ALL TIME <em><b>GREATEST PLAYERS</b></em> OF 2023  🕹</h2>
+                    <!--  the scoreboard TABLE -->
+                    <div class="score-table">
+                        <table style="width:680px">
+                            <!-- titles row -->
+                            <tr class="board-array-titles">
+                                <td>
+                                    <p>#</p>
+                                </td>
+                                <td>
+                                    <p>PLAYER</p>
+                                </td>
+                                <td>
+                                    <p>HIGHSCORES</p>
+                                </td>
+                                <td>
+                                    <p>PLAYS</p>
+                                </td>
+                            </tr>
+                            <!-- <tr class="boardArray">
+                            generate scores here
+                            </tr> -->
+                        </table>
+                       <!--if you want to keep titles above- but, the columns are off like this!! -->
+                        <table style="width:680px" class="boardArray" id="array">
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/scripts/leaderboard.js"></script>
 </body>
+
 </html>
