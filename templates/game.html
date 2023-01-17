@@ -32,10 +32,18 @@
             <div class="container">
                 <!-- questions structure -->
                 <div class="questions-area">
-                    <h3>Question: X</h3>
+                    <h3 id="question-number">Question: X</h3>
                     <!-- question gen here -->
                     <div class="question-box">
                         <!-- question here -->
+                        <h3 class="question-label"></h3>
+                        <!-- buttons area -->
+                        <div class="option-buttons" id="optionBtn">
+                            <button class="optionA" id="a">optionA</button>
+                            <button class="optionB" id="b">optionB</button>
+                            <button class="optionC" id="c">optionC</button>
+                            <button class="optionD" id="d">optionD</button>
+                        </div>
                     </div>
                 </div>
                 <div class="countdown">
@@ -50,18 +58,12 @@
                     </div>
                 </div>
             </div>
-            <div class="option-buttons" id="optionBtn">
-                <button class="optionA" id="a">optionA</button>
-                <button class="optionB" id="b">optionB</button>
-                <button class="optionC" id="c">optionC</button>
-                <button class="optionD" id="d">optionD</button>
                 <!-- restart timer button -->
                 <button class="restart-btn" onclick="restartTimer()">Restart</button>
                 <!-- quit to home -->
                 <a href="../index.html">
                     <button class="quit-btn">Quit</button>
                 </a>
-            </div>
         </div>
     </div>
     <script src="../assets/scripts/countdown.js"></script>

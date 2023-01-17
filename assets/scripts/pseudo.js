@@ -243,12 +243,14 @@ function startQuiz(index) {
 
     // generate a random question here!
     startShuffle()// this isnt working 
-    // let current = shuffledArray[index] // pick a random question via the shuffle 
-    let current = quizQuestions[index] // pick a random question via the shuffle 
+    let current = shuffledArray[index] // pick a random question via the shuffle 
+    // let current = quizQuestions[index] // pick a random question via the shuffle 
     // generate the elements 
+    // set question number 
+    document.getElementById('question-number').innerHTML = 'Question: ' + questionNumber;
     // the question field
-    // document.querySelector('.question-box').innerHTML = current.question;
-    document.querySelector('.question-box').innerHTML = quizQuestions[0].question
+    document.querySelector('.question-label').innerHTML = current.question;
+    // document.querySelector('.question-box').innerHTML = quizQuestions[0].question
     // 4 multiple choice box answers
     document.querySelector('.optionA').innerHTML = current.optionA;
     document.querySelector('.optionB').innerHTML = current.optionB;
@@ -257,6 +259,8 @@ function startQuiz(index) {
 
     console.log('elements generated!')
     console.log('user must select an answer now (via 1-4 answerButtons')
+
+    questionNumber++;
 }
 
 

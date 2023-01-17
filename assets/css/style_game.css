@@ -31,6 +31,10 @@ h3 {
     font-size: 30px;
 }
 
+h4 {
+    font-size: 28px;
+}
+
 p {
     font-size: 30px;
     padding: 0 2rem;
@@ -91,6 +95,7 @@ button {
 .question-box {
     padding: 1rem;
     margin-top: 2rem;
+    padding-bottom: 2rem;
     background-color: #555;
     border-radius: 1rem;
     width: 1000px;
@@ -98,7 +103,13 @@ button {
     /* border: 1px solid red; */
 }
 
+.question-label {
+    padding-bottom: 2rem;
+}
+
+
 .option-buttons {
+    flex-direction: row;
     padding-bottom: 2rem;
     /* border: 1px solid red; */
 }
