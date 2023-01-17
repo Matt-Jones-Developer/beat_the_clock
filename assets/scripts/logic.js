@@ -47,7 +47,7 @@
 
 const totalQuestions = 10;
 let currentQuestion = 1;
-let questionNumber = '1 to 10?';
+let questionNumber = 0;
 let correct = true;
 let wrong = false;
 let correctCounter = 0;
@@ -60,7 +60,6 @@ let index = 0; // we must track the q's via a global index! SOLVED
 // functions 
 
 // shuffle must come first - wheres the hoist??
-
 // shuffle feature 
 // create empty array
 let shuffledArray = [];
@@ -82,7 +81,7 @@ function startShuffle() {
 
 console.log(shuffledArray)
 
-// onClick startbtn -> call this
+// onClick startbtn 
 startQuiz()
 
 function startQuiz(index) {
@@ -125,7 +124,7 @@ function startQuiz(index) {
     index++;
 }
 
-// a function that eventlistens for a button pressed, and returns 
+// a function that event listens for a button pressed, and returns 
 // whether the button has the correct value that corresponds to the question
 // IF it does, increment score by 1
 // else -10 from remaining 
