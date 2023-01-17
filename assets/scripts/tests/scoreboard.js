@@ -323,14 +323,13 @@ for (let i = 0; i < 4; i++) {
 console.log(scores)
 
 scores = [
-    // whats the non-idiot way of doing this?? I cannot get a for loop to work
+    // 
     scoreboard[0].score, scoreboard[1].score, scoreboard[2].score, 
     scoreboard[3].score, scoreboard[4].score
 ];
 
 console.log('scoresArray', scores)
 
-// what is the for loop solution that would then allow to find the highest and lowest 
 
 for (let i = 0; i < scores.length; i++) {
     const element = scores[i].score;

@@ -195,6 +195,7 @@ function newHighScore() {
     }
 }
 
+
 // test function that adds a point to user NEW's .score (each press)
 
 function pointUp() {

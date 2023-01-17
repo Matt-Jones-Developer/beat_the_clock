@@ -1,6 +1,3 @@
-# beat_the_clock-timed_js_quiz
-
-
 
 <!-- Readme top-->
 <a name="readme-top"></a>
@@ -25,7 +22,8 @@
 </div>
 
 #
-<h2 align="center">Beat The Clock! A JS Quiz with timer and leaderboard. UNFINISHED DEMO ONLY</h2>
+<h2 align="center">Beat The Clock! A JS Quiz with timer and leaderboard.</h2>
+<p>UNFINISHED DRAFT ONLY</p>
 
   <p align="center">
     A fun, timed JS quiz app where you must answer the questions before the timer runs out.  Battle your way to the top of the leaderboard!
