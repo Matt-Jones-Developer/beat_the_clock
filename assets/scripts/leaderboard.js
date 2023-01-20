@@ -69,6 +69,8 @@ function clearBoard() {
 
 // Check if score qualifies for leaderboard 
 function qualify() {
+    // debug:
+    console.log('qualify called')
     // check if newPlayer < lowest score
     if (newPlayer.score < parseInt(pos5.score)) {
         // log - you failed
@@ -112,10 +114,11 @@ function qualify() {
 
         // clear the current board
         // issue: this clears the board-titles too? gah must separate them!! -as another function
-        document.querySelector('.boardArray').textContent = ''; // 'nope!` 
+        // document.querySelector('.boardArray').textContent = ''; // 'nope!` 
         // add newPlayer to correct element
         updateScoreboard();
         // add the new scoreboard to localStorage 
+        // this would need to be within updateScoreboard surely 
         localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
 
     }
@@ -212,7 +215,13 @@ function pointUp() {
     // when player can enter initials
     // if score is > than highScores[i] - in a for loop that iterates through the array?
     // or a set score for now
-    if (index === 10) {
+
+    // ISSUE: if I say score > pos5.score then qualify is called, 
+    //however if I say anything to do with remaining <= 0 - it fails?
+    if (score >= pos5.score) { // this is called as soon as a question is answered- 
+        // we want once the quiz has finished
+    // if (remaining <= 0 && score >= pos5.score) {
+    // if (remaining <= 0) {
 
         // call the qualify function
         qualify()

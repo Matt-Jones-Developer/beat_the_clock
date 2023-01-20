@@ -132,10 +132,6 @@ function startQuiz(index) {
     console.log('elements generated!')
     console.log('user must select an answer now (via 1-4 answerButtons)')
 
-    questionNumber++;
-    console.log('questionnumber++', questionNumber)
-    index++;
-    console.log('index++', index)
 
     // if user presses a button, try to get it to say if theyre wrong or right?
     // event listener for buttons - should this be inside here?
@@ -160,9 +156,12 @@ function startQuiz(index) {
                 pointUp()
             } else {
                 console.log('wrong')
-                remaining - 10;
+                // wrong - decrease reamining by 10
+                remaining = remaining - 10;
             }
 
+            questionNumber++;
+            console.log('questionnumber++', questionNumber)
             index++;
             console.log('index++', index)
         }
