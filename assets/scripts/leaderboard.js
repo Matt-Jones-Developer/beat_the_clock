@@ -184,7 +184,7 @@ function newHighScore() {
         console.log("new highScore:", highScore)
         console.log(`Congrats! You are top of the leaderboard, ${newPlayer.name}!`)
         // update the elements of Top Score #1 to GOLD
-        document.pos5.setAttribute('style', 'color: gold')
+        // document.pos5.setAttribute('style', 'color: gold')
         // document.querySelector('.score-table .n1').innerHTML = playerInput;
         // document.querySelector('.score-table .s1').innerHTML = score;
         // some form of animated gif or otherwise to celebrate being 1st place
@@ -207,12 +207,12 @@ function pointUp() {
     newPlayer.score += 100;
     console.log('score & newPlayer.score:', score, newPlayer.score)
     // update element 
-    document.querySelector('#score-label').innerHTML = score;
+    document.querySelector('#score-label').innerHTML = 'Score: ' + score;
 
     // when player can enter initials
     // if score is > than highScores[i] - in a for loop that iterates through the array?
     // or a set score for now
-    if (score > 1000) {
+    if (index === 10) {
 
         // call the qualify function
         qualify()

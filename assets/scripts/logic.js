@@ -111,7 +111,7 @@ function startQuiz(index) {
     // set question number 
     document.getElementById('question-number').innerHTML = 'Question: ' + questionNumber;
     // the question field
-    
+
     document.querySelector('.question-label').innerHTML = current.question;
     console.log(current.question)
     // document.querySelector('.question-box').innerHTML = quizQuestions[0].question
@@ -153,7 +153,7 @@ function startQuiz(index) {
 
             let currentAnswer = current.answer;
             // this is undefined - we are not accessing it correctly
-            console.log('current questions correct answer:',currentAnswer)
+            console.log('current questions correct answer:', currentAnswer)
 
             if (chosen === currentAnswer) {
                 console.log('correct')
@@ -163,8 +163,8 @@ function startQuiz(index) {
                 remaining - 10;
             }
 
-            // does the option match the answer?
-            // checkAnswer()
+            index++;
+            console.log('index++', index)
         }
     })
 
