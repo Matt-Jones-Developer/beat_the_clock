@@ -112,10 +112,15 @@ function startQuiz(index) {
     document.querySelector('.question-label').innerHTML = current.question;
     // document.querySelector('.question-box').innerHTML = quizQuestions[0].question
     // 4 multiple choice box answers
-    document.querySelector('.optionA').innerHTML = current.optionA;
-    document.querySelector('.optionB').innerHTML = current.optionB;
-    document.querySelector('.optionC').innerHTML = current.optionC;
-    document.querySelector('.optionD').innerHTML = current.optionD;
+    // as variables 
+    let optionA = document.querySelector('#optionA')
+    let optionB = document.querySelector('#optionB')
+    let optionC = document.querySelector('#optionC')
+    let optionD = document.querySelector('#optionD')
+    optionA.innerHTML = current.optionA;
+    optionB.innerHTML = current.optionB;
+    optionC.innerHTML = current.optionC;
+    optionD.innerHTML = current.optionD;
 
     console.log('elements generated!')
     console.log('user must select an answer now (via 1-4 answerButtons')
@@ -148,3 +153,13 @@ function checkAnswer() {
 
 
 }
+
+// event listener for buttons 
+
+let questionsArea = document.querySelector('.questions-area')
+
+questionsArea.addEventListener("click", function(event) {
+    if(event.target.matches(".option")) {
+        console.log(event.target)
+    }
+})

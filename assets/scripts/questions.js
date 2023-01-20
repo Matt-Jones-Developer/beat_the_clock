@@ -129,55 +129,55 @@ let quizQuestions = [
 
 ]
 
-// shuffle feature 
-let shuffledArray = [];
+// // shuffle feature 
+// let shuffledArray = [];
 
-function startShuffle() {
-    // iterate over array
-    for (let i = 0; i < shuffledArray.length; i++) {
-        // if array is <= 9
-        if (shuffledArray.length <= 9) {
-            // generate random * array length
-            let r = quizQuestions[Math.floor(Math.random()
-                * quizQuestions.length)]
-            // add a new random question each pass 
-            // if the array is empty
-            if (!shuffledArray.includes(r)) {
-                // push a new question to it
-                shuffledArray.push(r);
+// function startShuffle() {
+//     // iterate over array
+//     for (let i = 0; i < shuffledArray.length; i++) {
+//         // if array is <= 9
+//         if (shuffledArray.length <= 9) {
+//             // generate random * array length
+//             let r = quizQuestions[Math.floor(Math.random()
+//                 * quizQuestions.length)]
+//             // add a new random question each pass 
+//             // if the array is empty
+//             if (!shuffledArray.includes(r)) {
+//                 // push a new question to it
+//                 shuffledArray.push(r);
 
-            }
-        }
-    }
-}
+//             }
+//         }
+//     }
+// }
 
-// display next question in DOM
-function nextQuestion(i) {
-    // call the shuffle
-    startShuffle();
-    // get current by index 
-    let current =  shuffledArray[i]
-    // build the html elements 
-    // current Q number
-    document.querySelector('.QNumber').innerHTML = questionNum;
-    // the question field
-    document.querySelector('.next-question').innerHTML = current.question;
-    // 4 multiple choice box answers
-    document.querySelector('.optionA').innerHTML = current.optionA;
-    document.querySelector('.optionB').innerHTML = current.optionB;
-    document.querySelector('.optionC').innerHTML = current.optionC;
-    document.querySelector('.optionD').innerHTML = current.optionD;
-}
+// // display next question in DOM
+// function nextQuestion(i) {
+//     // call the shuffle
+//     startShuffle();
+//     // get current by index 
+//     let current =  shuffledArray[i]
+//     // build the html elements 
+//     // current Q number
+//     document.querySelector('.QNumber').innerHTML = questionNum;
+//     // the question field
+//     document.querySelector('.next-question').innerHTML = current.question;
+//     // 4 multiple choice box answers
+//     document.querySelector('.optionA').innerHTML = current.optionA;
+//     document.querySelector('.optionB').innerHTML = current.optionB;
+//     document.querySelector('.optionC').innerHTML = current.optionC;
+//     document.querySelector('.optionD').innerHTML = current.optionD;
+// }
 
-// grab answer 
-function grabAnswer() {
-    // assign current question
-    // grab current 
-    let current = shuffledArray[indexNum];
-    // grab correct answer 
-    let currentAnswer = current.answer;
-    // grab all options within html
-    const possAnswer = document.querySelector('option');
-    // 
+// // grab answer 
+// function grabAnswer() {
+//     // assign current question
+//     // grab current 
+//     let current = shuffledArray[indexNum];
+//     // grab correct answer 
+//     let currentAnswer = current.answer;
+//     // grab all options within html
+//     const possAnswer = document.querySelector('option');
+//     // 
 
-}
+// }

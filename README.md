@@ -93,7 +93,7 @@ My leaderboard testing - works brilliantly:
 - I wanted to make it like an arcade scoreboard; the 'default' players have various names and scores already stored in the array.
 - the players score is checked against the leaderboard and if they beat a score, get added to it.
 
-    - add to score (using dummy point++ button)
+    - add to score
     - newPlayer object is created that holds 3 initials, a score and a playcounter.
     - when score checked, if the player beats the lowest position score, they are asked to enter a username and the player object is successfully added to the array
     - the array correctly sorts positions 
