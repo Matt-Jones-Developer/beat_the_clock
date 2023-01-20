@@ -153,10 +153,11 @@ function startQuiz(index) {
 
             if (chosen === currentAnswer) {
                 console.log('correct')
+                // call the 'pointUp function that will add a point, and call qualify if timer === 0
                 pointUp()
             } else {
                 console.log('wrong')
-                // wrong - decrease reamining by 10
+                // wrong - decrease remaining by 10
                 remaining = remaining - 10;
             }
 
@@ -164,21 +165,26 @@ function startQuiz(index) {
             console.log('questionnumber++', questionNumber)
             index++;
             console.log('index++', index)
+
+            // call nextQuestion
+            // nextQuestion() // cannot seem to generate the next question here 
         }
     })
 
-    // call nextQuestion
+    // // call nextQuestion
     // nextQuestion()
 }
 
 // why is this erroring out at line 151?  It is exactly what we have above in startQuiz?
 // display next question in DOM
 function nextQuestion(index) {
+    // next question?
+    // startQuiz()
     // call the shuffle
     startShuffle();
     // get current by index 
     let current = shuffledArray[index]
-    // build the html elements 
+    // rebuild the html elements 
     // current Q number
     let optionA = document.querySelector('#optionA')
     let optionB = document.querySelector('#optionB')
@@ -230,3 +236,57 @@ function checkAnswer() {
 //         console.log(event.target)
 //     }
 // })
+
+
+// test function that adds a point to user NEW's .score (each press)
+
+// function pointUp() {
+//     // when btn clicked 
+//     console.log('point up!')
+//     // add a point to score - but award 100 points per answer
+//     score += 100
+//     // also add to newPlayer score ? why need both if they're assigned to each other above?
+//     newPlayer.score += 100;
+//     console.log('score & newPlayer.score:', score, newPlayer.score)
+//     // update element 
+//     document.querySelector('#score-label').innerHTML = 'Score: ' + score;
+
+//     // when player can enter initials
+//     // if score is > than highScores[i] - in a for loop that iterates through the array?
+//     // or a set score for now
+
+//     // ISSUE: if I say score > pos5.score then qualify is called, 
+//     //however if I say anything to do with remaining <= 0 - it fails?
+//     if (score >= pos5.score) { // this is called as soon as a question is answered- 
+//         // we want once the quiz has finished
+//     // if (remaining <= 0 && score >= pos5.score) {
+//     // if (remaining <= 0) {
+
+//         // call the qualify function
+//         qualify()
+
+//         // confused here! ...
+
+//         // a findIndex of the lowest score 
+//         const index = scoreboard.findIndex(object => {
+//             // debug
+//             console.log('log all objects:', object, object.score)
+//             // return element we need (id:1)
+//             return object.score === 1;
+//         });
+
+//         if (index !== -1) {
+//             // assign entered name as the players name (n1)
+//             scoreboard[index].name = playerInput;
+//             // add score to score (s1)
+//             scoreboard[index].score = score;
+//             // debug
+//             console.log('new indexes name:', scoreboard[index].name)
+//             console.log('new scoreboard:', scoreboard)
+
+//             // update the element to add name to scoreboard 
+//             // document.querySelector('.score-table .n1').innerHTML = playerInput;
+//             // document.querySelector('.score-table .s1').innerHTML = score;
+//         }
+//     }
+// }

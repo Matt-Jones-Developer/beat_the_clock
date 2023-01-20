@@ -115,8 +115,13 @@ function qualify() {
         // clear the current board
         // issue: this clears the board-titles too? gah must separate them!! -as another function
         // document.querySelector('.boardArray').textContent = ''; // 'nope!` 
+
+        // we cannot append or update here - since we are not yet on the leaderboard.html page 
+
         // add newPlayer to correct element
-        updateScoreboard();
+        // updateScoreboard();
+
+
         // add the new scoreboard to localStorage 
         // this would need to be within updateScoreboard surely 
         localStorage.setItem("scoreboard", JSON.stringify(scoreboard));
@@ -155,6 +160,12 @@ function updateScoreboard() {
 
         // declare parent (scoreboard)
         let parent = document.querySelector('.boardArray');
+
+        // this is trying to append to the current 'game.html' page we are in,
+        // but it should be appending to the leaderboard.html
+
+        // we cannot append since we are not on the correct html page to append to!
+        // must change the array only, then once we jump to leaderboard.html - the appends happen 'on-load'
 
         // append the rows
         parent.append(row);
@@ -218,7 +229,9 @@ function pointUp() {
 
     // ISSUE: if I say score > pos5.score then qualify is called, 
     //however if I say anything to do with remaining <= 0 - it fails?
-    if (score >= pos5.score) { // this is called as soon as a question is answered- 
+    if (score >= 1100) { // works and positions correctly within array
+    // if (score >= 100) { // this DOES NOT work as expected - bottom score remains instead of being popped off 
+    // if (score >= pos5.score) { // this is called as soon as a question is answered- 
         // we want once the quiz has finished
     // if (remaining <= 0 && score >= pos5.score) {
     // if (remaining <= 0) {
@@ -251,5 +264,3 @@ function pointUp() {
         }
     }
 }
-// }
-// }

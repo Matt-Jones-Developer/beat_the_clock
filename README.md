@@ -81,7 +81,7 @@ TODO:
  
 This weeks task was to build a quiz app.  For some reason I have really struggled with this one.
 
-I had to go and see family this weekend, so haven't had anywhere near enough time to work on this.  Sadly I will be submitting what I have, currently incomplete and not fully working at all.  I will have to re-submit this to improve my grade once the logic has been achieved.
+I had to go and see family this weekend, so haven't had anywhere near enough time to work on this.  I am now ill also which has only added to my issue of figuring out the logic correctly.  Sadly I will be submitting what I have, currently incomplete and not fully working at all.  I will have to re-submit this to improve my grade once the logic has been achieved.
 
 I felt like a lot of what we were shown in class this week should of helped me.  But I found it hard to absorb it all this week, I am also not in a good space, conducive to working at all, so it is what it is.
 
@@ -91,7 +91,7 @@ I started out really strong, developed the timer component in a morning, before 
 
 My leaderboard testing - works brilliantly:
 - I wanted to make it like an arcade scoreboard; the 'default' players have various names and scores already stored in the array.
-- the players score is checked against the leaderboard and if they beat a score, get added to it.
+- the players score is checked against the leaderboard in the 'qualify' function, and if they beat a score, get added to it. If they beat the top score they are added to the top position.
 
     - add to score
     - newPlayer object is created that holds 3 initials, a score and a playcounter.
@@ -99,7 +99,13 @@ My leaderboard testing - works brilliantly:
     - the array correctly sorts positions 
     - if the user makes the highest score, too.
 
-    - It took me 3 days to get those 2 elements down and working correctly.  I spent another morning working on the css and html content; as I wanted to use multiple pages 'start page' 'main-game' and 'leaderboard' and styled each page, very roughly.
+    - It took me 3 days to get those 2 elements down and working correctly.  I spent another morning working on the css and html content; as I wanted to use multiple pages 'start page' 'main-game' and 'leaderboard' and styled each page, very roughly.  I now have the questions generating randomly, the score adds 100 to score if answered correctly, and if wrong 10 seconds is reduced from the timer (remaining var).
+
+    If the user makes the scoreboard, they are offered to enter their initials.  But I am stuck on how to call the next question currently.
+
+    A sad offering, trying hard to not get upset about this and hoping to catch up and get back to my usual performance.
+
+    I have booked in some 1-2-1 private tutoring to make sense of why I am struggling.  On paper, I seem to understand it, but I made the project way too complex before getting the Minimum Viable Product working first - which I know is where I went wrong.   
 
 #
 
@@ -115,16 +121,18 @@ Product screenshot:
 
 
 GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
+WHEN I click the start button [DONE]
+THEN a timer starts and I am presented with a question [DONE]
 WHEN I answer a question
-THEN I am presented with another question
+THEN I am presented with another question [TODO]
+WHEN I answer a question correctly
+100 points are added to the score [DONE]
 WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
+THEN time is subtracted from the clock [DONE]
 WHEN all questions are answered or the timer reaches 0
 THEN the game is over
 WHEN the game is over
-THEN I can save my initials and score
+THEN I can save my initials and score [TODO] - it works on the test logic, but sadly it now has bugs when I carried it into the main logic/app build.
 
 #
 
