@@ -52,10 +52,9 @@ let correct = true;
 let wrong = false;
 let correctCounter = 0;
 let wrongCounter = 0;
-let score = 0; // will be using to add to scoreboard/logic score
 let next = false; // switch to check if next question called (true)
 let index = 0; // we must track the q's via a global index! SOLVED
-
+let chosen;
 
 // functions 
 
@@ -74,7 +73,10 @@ function startShuffle() {
                 * quizQuestions.length)]
             // add a new random question each pass  (r)
             // if the array does not yet include r ??
-            shuffledArray.push(r);
+            if (!shuffledArray.includes(r)) {
+                // push a new question to array
+                shuffledArray.push(r);
+            }
         }
     }
 }
@@ -109,8 +111,13 @@ function startQuiz(index) {
     // set question number 
     document.getElementById('question-number').innerHTML = 'Question: ' + questionNumber;
     // the question field
+    
     document.querySelector('.question-label').innerHTML = current.question;
+    console.log(current.question)
     // document.querySelector('.question-box').innerHTML = quizQuestions[0].question
+
+    // grab the correct answer?
+    // let answer = 
     // 4 multiple choice box answers
     // as variables 
     let optionA = document.querySelector('#optionA')
@@ -123,10 +130,65 @@ function startQuiz(index) {
     optionD.innerHTML = current.optionD;
 
     console.log('elements generated!')
-    console.log('user must select an answer now (via 1-4 answerButtons')
+    console.log('user must select an answer now (via 1-4 answerButtons)')
 
     questionNumber++;
+    console.log('questionnumber++', questionNumber)
     index++;
+    console.log('index++', index)
+
+    // if user presses a button, try to get it to say if theyre wrong or right?
+    // event listener for buttons - should this be inside here?
+
+    let questionsArea = document.querySelector('.questions-area')
+
+    questionsArea.addEventListener("click", function (event) {
+        if (event.target.matches(".option")) {
+            console.log(event.target)
+            // are we accessing the buttons id??
+            console.log(event.target.id)
+            // set selected button to a new var?
+            let chosen = event.target.id;
+            console.log('chosen:', chosen)
+
+            let currentAnswer = current.answer;
+            // this is undefined - we are not accessing it correctly
+            console.log('current questions correct answer:',currentAnswer)
+
+            if (chosen === currentAnswer) {
+                console.log('correct')
+                pointUp()
+            } else {
+                console.log('wrong')
+                remaining - 10;
+            }
+
+            // does the option match the answer?
+            // checkAnswer()
+        }
+    })
+
+    // call nextQuestion
+    // nextQuestion()
+}
+
+// why is this erroring out at line 151?  It is exactly what we have above in startQuiz?
+// display next question in DOM
+function nextQuestion(index) {
+    // call the shuffle
+    startShuffle();
+    // get current by index 
+    let current = shuffledArray[index]
+    // build the html elements 
+    // current Q number
+    let optionA = document.querySelector('#optionA')
+    let optionB = document.querySelector('#optionB')
+    let optionC = document.querySelector('#optionC')
+    let optionD = document.querySelector('#optionD')
+    optionA.innerHTML = current.optionA;
+    optionB.innerHTML = current.optionB;
+    optionC.innerHTML = current.optionC;
+    optionD.innerHTML = current.optionD;
 }
 
 // a function that event listens for a button pressed, and returns 
@@ -151,15 +213,21 @@ function checkAnswer() {
 
     let correctOption = null;
 
+    if (chosen === currentAnswer) {
+        console.log('correct')
+    } else {
+        console.log('wrong')
+    }
+
 
 }
 
-// event listener for buttons 
+// // event listener for buttons 
 
-let questionsArea = document.querySelector('.questions-area')
+// let questionsArea = document.querySelector('.questions-area')
 
-questionsArea.addEventListener("click", function(event) {
-    if(event.target.matches(".option")) {
-        console.log(event.target)
-    }
-})
+// questionsArea.addEventListener("click", function(event) {
+//     if(event.target.matches(".option")) {
+//         console.log(event.target)
+//     }
+// })

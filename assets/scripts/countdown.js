@@ -1,6 +1,6 @@
 // The countdown timer function 
 
-let remaining = 10;
+let remaining = 60;
 
 document.getElementById("seconds").innerHTML = remaining;
 

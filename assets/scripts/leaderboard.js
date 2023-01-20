@@ -123,7 +123,7 @@ function qualify() {
 }
 
 // call updateScoreboard on load (should be via localStorage AFTER thIS RUN)
-updateScoreboard()
+// updateScoreboard()
 
 // current issue - this will print ALL the names and scores onto the FIRST ROW of the table 
 
